@@ -57,4 +57,3 @@ To evaluate whether a new email subject line (Treatment) improves user engagemen
 - Especially effective for **mobile users** and **age group 35–44**
 - Clear business case to roll out Subject B across all segments, with targeting focus on younger mobile users
 
----
