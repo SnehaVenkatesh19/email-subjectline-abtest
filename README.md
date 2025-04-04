@@ -1,59 +1,81 @@
-# 📧 A/B Test on Email Subject Lines for Subscription Uplift
+#  A/B Test on Email Subject Lines for Subscription Uplift
 
-## 📌 Objective
+##  Objective  
 To evaluate whether a new email subject line (Treatment) improves user engagement and subscription rates compared to the existing subject line (Control).
 
 ---
 
-## 📊 Dataset
-- 10,000 synthetic users
+##  Dataset
+- 10,000 synthetic email users
 - Features:
-  - `group` (control/treatment)
+  - `group` (control / treatment)
   - `opened`, `clicked`, `subscribed`
   - `device`, `age_group`, `source`, `location`
 
 ---
 
-## 🔬 Methodology
+## Methodology
 
 ### Funnel Breakdown
-- **Open Rate**:  
-  - Control: 30.2%  
-  - Treatment: 37.1% ✅  
-- **Click-Through Rate**:  
-  - Control: 6.0%  
-  - Treatment: 8.8% ✅  
-- **Subscription Rate**:  
-  - Control: 0.6%  
-  - Treatment: 1.2% ✅  
 
-### Z-Tests (Statistical Significance)
-- Open Rate: **Z = -7.36, p < 0.001** 
-- Click Rate: **Z = -5.27, p < 0.001**   
-- Subscription Rate: **Z = -3.17, p = 0.0015**   
-→ The treatment subject line significantly improved every stage of the funnel.
-
-### Confidence Intervals (95%)
-- Control Subscription Rate: 0.4% to 0.8%  
-- Treatment Subscription Rate: 0.9% to 1.5%  
-→ Intervals do **not** overlap → strong evidence of uplift.
-
-### Logistic Regression
-- Used `group`, `device`, `age_group`, `source`, `opened`, and `clicked` to predict `subscribed`
-- Model showed good fit, though quasi-separation indicated strong prediction
-
-### Segmented Funnel Insights
-- **Mobile users** and **users aged 25–44** responded best to the new subject line
-- Subscription rate for mobile-treatment group: **1.35%** vs. **0.61%** in control
-
-### Interaction Effects
-- Treatment impact was slightly stronger for mobile and age 35–44 users
-- Logistic regression with interaction terms confirmed segment-wise trends
+| Metric           | Control | Treatment |  Uplift |
+|------------------|---------|-----------|-----------|
+| **Open Rate**    | 30.2%   | 37.1%     |  +6.9%   |
+| **Click Rate**   | 6.0%    | 8.8%      |  +2.8%   |
+| **Subscribe Rate** | 0.6%  | 1.2%      |  ~2x     |
 
 ---
 
-## 💡 Key Takeaways
-- **Treatment subject line significantly improved** all funnel metrics
-- Especially effective for **mobile users** and **age group 35–44**
-- Clear business case to roll out Subject B across all segments, with targeting focus on younger mobile users
+### Statistical Tests (Z-Test Results)
+
+- **Open Rate**: Z = -7.36, p < 0.001  
+- **Click Rate**: Z = -5.27, p < 0.001  
+- **Subscribe Rate**: Z = -3.17, p = 0.0015  
+
+>  Statistically significant improvements across all stages.
+
+---
+
+### Confidence Intervals (95%)
+
+- Control: **0.4% → 0.8%**  
+- Treatment: **0.9% → 1.5%**  
+> 📈 Intervals do **not overlap**, confirming a reliable uplift.
+
+---
+
+###  Logistic Regression
+
+- Variables: `group`, `device`, `age_group`, `source`, `opened`, `clicked`
+- Strong predictive power, quasi-separation indicates behavior-driven conversion
+- Interaction terms added to test treatment effect across user segments
+
+---
+
+### Segmented Funnel Insights
+
+-  **Mobile users** and  **users aged 25–44** responded best
+- **Mobile-Treatment group**: 1.35% vs 0.61% in control
+- Treatment effect most noticeable in age group **35–44**
+
+---
+
+##  Key Takeaways
+
+- The **treatment subject line significantly outperformed** control across all funnel metrics  
+- Treatment is **especially effective on mobile and middle-aged users (35–44)**  
+- Strong business case to **roll out Subject Line B platform-wide**, with segmentation-based targeting
+
+---
+
+##  Tableau Dashboard
+
+> Includes:
+- KPI Tiles (Open, Click, Subscribe Rates)
+- Funnel Comparison by Group
+- Segmented Analysis by Device & Age Group
+
+ *https://public.tableau.com/app/profile/sneha.venkatesh3644/viz/Email_AB_Testing/Dashboard1*
+
+
 
